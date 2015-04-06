@@ -1,0 +1,10 @@
+.idea
+.env
+.virtualenv
+*.pyc
+.coverage
+*.swp
+*.egg
+*.egg-info
+build/
+dist/
