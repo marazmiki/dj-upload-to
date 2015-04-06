@@ -18,33 +18,33 @@ class ExampleModel(object):
 
 
 class Test(unittest.TestCase):
-    def test_1(self):
+    def test_autoprefix(self):
         self.assertEquals('examplemodel/file.txt', up('file.txt',
                                                       prefix=None,
                                                       save_name=True))
 
-    def test_2(self):
+    def test_explicit_prefix(self):
         self.assertEquals('spam/file.exe', up('file.exe',
                                               prefix='spam',
                                               save_name=True))
 
-    def test_3(self):
+    def test_save_name(self):
         self.assertTrue(up('File.PnG', save_name=True).endswith('.PnG'))
 
-    def test_4(self):
+    def test_generate_name(self):
         self.assertTrue(up('File.PnG', save_name=False).endswith('.png'))
 
-    def test_5(self):
+    def test_generate_name_with_custom_segment_numbers(self):
         filename = up('file.zip', save_name=False, num_seg=3)
         self.assertEquals(4, filename.count('/'))
 
-    def test_6(self):
+    def test_generate_name_with_custom_segment_size(self):
         filename = up('file.zip', save_name=False, seg_size=4).split('/')
         self.assertEquals(4, len(filename))
         self.assertEquals(4, len(filename[1]))
         self.assertEquals(4, len(filename[2]))
 
-    def test_7(self):
+    def test_generate_name_without_segments(self):
         filename = up('file.zip', save_name=False, seg_size=0).split('/')
         self.assertEquals(2, len(filename))
         self.assertEquals('examplemodel', filename[0])
