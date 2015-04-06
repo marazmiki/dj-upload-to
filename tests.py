@@ -51,7 +51,6 @@ class Test(unittest.TestCase):
         self.assertTrue(filename[1].endswith('.zip'))
 
 
-
 def main():
     """
     Main test module, used as entry point from setup.py

@@ -53,5 +53,3 @@ class UploadTo(object):
     def get_segments(self, model_instance, filename):
         return [filename[i * self.seg_size:(i + 1) * self.seg_size]
                 for i in range(self.num_seg)]
-
-
