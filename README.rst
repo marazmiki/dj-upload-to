@@ -71,6 +71,7 @@ Assumes you have model:
 As you see, `UploadTo` generates callable object (with `__call__` methodfor passing into `upload_to` attribute of FileField (see `django upload_to docs <https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.FileField.upload_to>`_ for details)
 
 When you save model with image originally named `myphoto.JPG`, file
+
 will be saved with name such as:
 
 .. code:: bash
@@ -90,6 +91,7 @@ Customize
 
 You can customize behavior of `UploadTo` with options in constructor:
 
+
 * `prefix`: prefix of filename. Default is `dj_upload_to.not_provided`. If `None`, prefix will be missed. If not explicitly set, will be generated automatically based on model class name
 * `num_seg`: number of parts of segmentation. Default is `2`
 * `seg_size`: length of segment in chars. Default is `2`
@@ -98,6 +100,7 @@ You can customize behavior of `UploadTo` with options in constructor:
 There are some examples:
 
 .. code:: python
+
 
     >>> model_instance = Model()
 
@@ -124,6 +127,7 @@ There are some examples:
     >>> # Save original filename without prefix
     >>> UploadTo(save_name=True, prefix=None)(model_instance, 'file.jpg')
     u'file.jpg'
+
 
 
 Contributing
