@@ -31,11 +31,11 @@ if __name__ == '__main__':
           description=DESCRIPTION,
           author='Mikhail Porokhovnichenko',
           author_email='marazmiki@gmail.com',
-          url='https://github.com/marazmiki/django-webdav-storage',
+          url='https://github.com/marazmiki/dj-upload-to',
           version=VERSION,
           long_description=long_description(),
           py_modules=['dj_upload_to'],
-          test_suite='tests.main',
+          test_suite='tests',
           zip_safe=False,
           classifiers=[
               'Environment :: Web Environment',

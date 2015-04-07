@@ -41,6 +41,13 @@ class UploadTo(object):
         return bits
 
     def get_prefix(self, model_instance, filename):
+        """
+        Returns prefix (namespace) for saved file
+
+        :param model_instance: models.Model
+        :param filename: str
+        :return: str
+        """
         return self.prefix or model_instance.__class__.__name__.lower()
 
     def get_segments(self, model_instance, filename):
