@@ -2,6 +2,11 @@
 CHANGELOG
 =========
 
+1.0.2
+-----
+
+* Fix sad setup.py bug
+
 
 1.0.1
 -----

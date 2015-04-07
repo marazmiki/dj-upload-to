@@ -1,0 +1,4 @@
+include README.rst
+include CHANGELOG.rst
+include setup.py
+include dj_upload_to.py
