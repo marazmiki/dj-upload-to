@@ -8,16 +8,22 @@ import uuid
 import os
 
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
+
+
+class NotProvided(object):
+    pass
+
+
+not_provided = NotProvided()
 
 
 class UploadTo(object):
-    def __init__(self, prefix=None, num_seg=2, seg_size=2, hash_name=True,
+    def __init__(self, prefix=not_provided, num_seg=2, seg_size=2,
                  save_name=False):
         self.num_seg = num_seg
         self.seg_size = seg_size
         self.prefix = prefix
-        self.hash_name = hash_name
         self.save_name = save_name
 
     def __call__(self, model_instance, filename):
@@ -48,8 +54,15 @@ class UploadTo(object):
         :param filename: str
         :return: str
         """
-        return self.prefix or model_instance.__class__.__name__.lower()
+        if self.prefix == not_provided:
+            return model_instance.__class__.__name__.lower()
+        if self.prefix is None:
+            return ''
+        return self.prefix
 
     def get_segments(self, model_instance, filename):
         return [filename[i * self.seg_size:(i + 1) * self.seg_size]
                 for i in range(self.num_seg)]
+
+
+upload = UploadTo(save_name=False, num_seg=2, seg_size=2)

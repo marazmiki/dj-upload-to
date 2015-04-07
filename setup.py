@@ -21,9 +21,12 @@ def long_description():
     Returns package long description from README
     """
     def read(what):
-        with open(os.path.join(DIR, '%s.rst' % what)) as fp:
+        with open(os.path.join(DIR, '{}.rst'.format(what))) as fp:
             return fp.read()
-    return '{README}\n'.format(README=read('README'))
+    return '{README}\n\n{CHANGELOG}'.format(
+        README=read('README'),
+        CHANGELOG=read('CHANGELOG'),
+    )
 
 
 if __name__ == '__main__':
