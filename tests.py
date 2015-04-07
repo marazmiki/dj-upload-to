@@ -20,17 +20,17 @@ class ExampleModel(object):
 class Test(unittest.TestCase):
     def test_autoprefix(self):
         self.assertEqual('examplemodel/file.txt', up('file.txt',
-                                                      save_name=True))
+                                                     save_name=True))
 
     def test_explicit_prefix(self):
         self.assertEqual('spam/file.exe', up('file.exe',
-                                              prefix='spam',
-                                              save_name=True))
+                                             prefix='spam',
+                                             save_name=True))
 
     def test_no_prefix(self):
         self.assertEqual('file.exe', up('file.exe',
-                                         prefix=None,
-                                         save_name=True))
+                                        prefix=None,
+                                        save_name=True))
 
     def test_save_name(self):
         self.assertTrue(up('File.PnG', save_name=True).endswith('.PnG'))
