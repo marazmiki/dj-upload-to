@@ -67,7 +67,7 @@ Assumes you have model:
         file = models.ImageField(upload_to=upload_to)
 
 
-As you see, `UploadTo` generates callable object (with `__call__` methodfor passing into `upload_to` attribute of FileField (see `django upload_to docs<https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.FileField.upload_to>`_ for details)
+As you see, `UploadTo` generates callable object (with `__call__` methodfor passing into `upload_to` attribute of FileField (see `django upload_to docs <https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.FileField.upload_to>`_ for details)
 
 When you save model with image originally named `myphoto.JPG`, file 
 will be saved with name such as:
@@ -116,5 +116,5 @@ There are some examples:
 Contributing
 ------------
 
-Ideas, bugfixes, pull requests are welcome on `GitHub<https://github.com/marazmiki/dj-upload-to>`_
+Ideas, bugfixes, pull requests are welcome on `GitHub <https://github.com/marazmiki/dj-upload-to>`_
 
