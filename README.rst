@@ -106,7 +106,7 @@ There are some examples:
 
     >>> # Disable prefix
     >>> UploadTo(prefix=None)(model_instance, 'file.jpg')
-    'c0/17/c01745b4-e70b-4dd8-a5f7-76fec32fcb83.jpg'
+    u'c0/17/c01745b4-e70b-4dd8-a5f7-76fec32fcb83.jpg'
 
     >>> # Explicitly given prefix
     >>> UploadTo(prefix='my_files')(model_instance, 'file.jpg')
