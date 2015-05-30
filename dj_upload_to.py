@@ -8,7 +8,7 @@ import uuid
 import os
 
 
-__version__ = '1.0.2'
+__version__ = '1.1'
 
 
 class NotProvided(object):
@@ -19,12 +19,13 @@ not_provided = NotProvided()
 
 
 class UploadTo(object):
-    def __init__(self, prefix=not_provided, num_seg=2, seg_size=2,
-                 save_name=False):
-        self.num_seg = num_seg
-        self.seg_size = seg_size
-        self.prefix = prefix
-        self.save_name = save_name
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+        self.num_seg = kwargs.get('num_seg', 2)
+        self.seg_size = kwargs.get('seg_size', 2)
+        self.prefix = kwargs.get('prefix', not_provided)
+        self.save_name = kwargs.get('save_name', False)
 
     def __call__(self, model_instance, filename):
         bits = self.get_filename(model_instance, filename)
@@ -32,6 +33,9 @@ class UploadTo(object):
         bits.insert(0, prefix)
 
         return os.path.join(*bits)
+
+    def deconstruct(self):
+        return ('dj_upload_to.UploadTo', self.args, self.kwargs)
 
     def get_filename(self, model_instance, filename):
         if self.save_name:

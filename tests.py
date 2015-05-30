@@ -54,6 +54,13 @@ class Test(unittest.TestCase):
         self.assertEqual('examplemodel', filename[0])
         self.assertTrue(filename[1].endswith('.zip'))
 
+    def test_deconstruct(self):
+        upt = dj_upload_to.UploadTo(1, 2, 3, spam='egg')
+        name, args, kwargs = upt.deconstruct()
+        self.assertEqual('dj_upload_to.UploadTo', name)
+        self.assertEqual((1, 2, 3), args)
+        self.assertEqual({'spam': 'egg'}, kwargs)
+
 
 def main():
     """

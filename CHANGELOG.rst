@@ -2,6 +2,11 @@
 CHANGELOG
 =========
 
+1.1
+---
+
+* Add **deconstruct()** support
+
 1.0.2
 -----
 
