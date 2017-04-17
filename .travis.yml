@@ -17,7 +17,7 @@ before_script:
   - make flake8
 
 script:
-  - make coverage
+  - make cov
 
 after_success:
   - coveralls --rcfile=.coveragerc
