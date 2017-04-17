@@ -1,3 +1,6 @@
+.PHONY: test release flake8 cov clean
+
+
 test:
 	python setup.py develop
 	python setup.py test
@@ -5,26 +8,27 @@ test:
 
 
 release:
-	python setup.py sdist --format=zip,bztar,gztar register upload
-	python setup.py bdist_wheel register upload
+	python setup.py sdist --format=zip,bztar,gztar
+	python setup.py bdist_wheel
+	python setup.py register upload
+
 
 flake8:
 	flake8 --max-complexity 12 *.py
 
 
-coverage:
-	make clean
+cov:
 	python setup.py develop
 	coverage run --rcfile=.coveragerc --include=*.py setup.py test
-	coverage html
+	coverage report --rcfile=.coveragerc
+	coverage html --rcfile=.coveragerc
+
 
 clean:
 	python setup.py develop --uninstall
 	rm -rf *.egg-info *.egg
 	rm -rf htmlcov
 	rm -f .coverage
+	rm -rf .cache
 	rm -rf build dist
 	find . -name "*.pyc" -exec rm -rf {} \;
-
-coveralls:
-	coveralls --rcfile=.coveragerc
