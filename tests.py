@@ -2,11 +2,15 @@ from __future__ import unicode_literals
 import dj_upload_to
 import re
 import pytest
+import sys
 
 
 @pytest.fixture
 def ExampleModel():
-    return type('ExampleModel', (), {})
+    return type(
+        'ExampleModel' if sys.version.startswith('3') else b'ExampleModel',
+        (), {}
+    )
 
 
 @pytest.fixture
