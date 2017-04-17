@@ -1,19 +1,24 @@
 language: python
 
+
 python:
   - "2.7"
   - "3.3"
   - "3.4"
+  - "3.5"
+  - "3.6"
+
 
 install:
-  - pip install -q flake8 coveralls coverage
+  - pip install -q flake8 coveralls coverage pytest
   - python setup.py install
 
 before_script:
   - make flake8
 
 script:
-  - make coverage
+  - make cov
 
 after_success:
-  - make coveralls
+  - coveralls --rcfile=.coveragerc
+

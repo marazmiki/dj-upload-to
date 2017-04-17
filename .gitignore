@@ -2,6 +2,7 @@
 .env
 .virtualenv
 *.pyc
+.cache
 .coverage
 *.swp
 *.egg

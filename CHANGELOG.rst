@@ -2,6 +2,16 @@
 CHANGELOG
 =========
 
+2.0
+---
+
+* Added support for Python 3.5 and 3.6;
+* Use `py.test <https://docs.pytest.org/en/latest/>`_ as testing framework;
+* Added ``get_extension()`` and ``get_trusted_filename()`` methods;
+* Code is well documentated with docstring;
+* Makefile simplified; also ``coverage`` target was renamed to ``cov`` one;
+
+
 1.1
 ---
 

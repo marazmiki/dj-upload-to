@@ -1,5 +1,5 @@
 [run]
-source = dj_upload_to
+source = dj_upload_to,tests
 branch = True
 
 [report]
